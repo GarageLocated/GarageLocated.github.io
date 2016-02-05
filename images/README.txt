@@ -1,0 +1,1 @@
+All image and video belong to their respective owner
