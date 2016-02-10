@@ -127,24 +127,24 @@
                    
                     map.setCenter(lonLat, 14);
                 });
-                  //borrar comment
+                  /*nuevo comment feb2016
                 map.setCenter(new
                 OpenLayers.LonLat(3,3) // Center of the map
                   .transform(
                     new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                     new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
                   ), 15 // Zoom level
-                 );
+                 );*/
                 
                   //comento el click del marker, no borrar
                 var markers = new OpenLayers.Layer.Markers( "Markers" );
                 map.addLayer(markers);
                 //markers.addMarker(new OpenLayers.Marker(position));
-                
+                /*nuevo comment feb2016
                 markers.events.register("click", markers, function() {
                 window.alert("Acacias 132 (Agregar foto), Precio: S/.6 / hora");
                 });
-                //cierro el comment del marker
+                //cierro el comment del marker*/
                 
                 //  descomentar
                 
@@ -172,7 +172,7 @@
 
                                 var feature = new OpenLayers.Feature.Vector(
                                     new OpenLayers.Geometry.Point(todoItems[i].longitud, todoItems[i].latitud).transform(fromProjection, toProjection),
-                                { description: todoItems[i].direccion + todoItems[i].tarifa },
+                                { description: todoItems[i].direccion + " " + todoItems[i].tarifa },
                                 { externalGraphic: 'js/img/marker-blue.png', graphicHeight: 25, graphicWidth: 21, graphicXOffset: -12, graphicYOffset: -25 }
                                 );
                                 vectorLayer.addFeatures(feature);  
@@ -189,7 +189,7 @@
                   feature.popup = new OpenLayers.Popup.FramedCloud("pop",
                       feature.geometry.getBounds().getCenterLonLat(),
                       null,
-                      '<div class="markerContent">'+feature.attributes.description+'</div>',
+                      '<div class="markerContent">'+feature.attributes.description+'</div>'+'<input type="submit" class="button alt" onclick="alert(\'registro exitoso\');" value="Reservar">',
                       null,
                       true,
                       function() { controls['selector'].unselectAll(); }
